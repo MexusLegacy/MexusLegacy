@@ -1,16 +1,20 @@
-## Hi there 👋
+# Mexus Legacy
 
-<!--
-**MexusLegacy/MexusLegacy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to the official repository of Mexus Legacy. We are a company specializing in painting, drywall, pressure washing, and junk removal services. This repository contains the source code for our website, where customers can view our portfolio of previous work and easily schedule appointments.
 
-Here are some ideas to get you started:
+## Project Description
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+The goal of this project is to provide an online platform for our customers to:
+- Quickly access a portfolio of our previous work.
+- Schedule appointments for our services with ease.
+- Contact us directly through the website.
+
+## Technologies Used
+
+- **HTML5**: Structure of the web pages.
+- **CSS3**: Styles and design of the web pages.
+- **JavaScript**: Interactivity and client-side functionalities.
+- **Node.js and Express**: Backend to handle requests and send email notifications.
+- **Nodemailer**: Sending email notifications.
+
+## Repository Structure
