@@ -1,8 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: #f5f5dc; /* Beige background */
     margin: 0;
     padding: 0;
     color: #333;
@@ -31,37 +29,44 @@ nav ul li a {
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+    padding: 2rem;
     text-align: center;
 }
 
-.center-box {
-    background-color: rgba(255, 248, 240, 0.9); /* Cream color with transparency */
-    padding: 2rem;
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.center-box h1 {
-    color: #8B4513; /* Brown color */
-    margin-bottom: 1rem;
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: none;
 }
 
-.btn {
-    background-color: #8B4513; /* Brown color */
+.carousel img.active {
+    display: block;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-control {
+    background-color: rgba(51, 51, 51, 0.5);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
     color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 0.5rem;
-    display: inline-block;
-}
-
-.btn:hover {
-    background-color: #A0522D;
 }
 
 footer {
