@@ -7,52 +7,78 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f5f5dc; /* Beige background */
             margin: 0;
             padding: 0;
+            color: #333;
         }
+
         header {
-            background-color: #333;
-            color: white;
+            background-color: rgba(51, 51, 51, 0.8);
             padding: 1rem 0;
             text-align: center;
         }
+
         nav ul {
             list-style: none;
             padding: 0;
         }
+
         nav ul li {
             display: inline;
             margin: 0 15px;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
+
         main {
             padding: 2rem;
             text-align: center;
         }
-        .content {
+
+        .carousel {
+            position: relative;
             max-width: 800px;
             margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .gallery img {
-            max-width: 100%;
+
+        .carousel img {
+            width: 100%;
             height: auto;
-            border: 2px solid #333;
-            border-radius: 5px;
+            display: none;
         }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control {
+            background-color: rgba(51, 51, 51, 0.5);
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            color: white;
+        }
+
         footer {
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.8);
             color: white;
             text-align: center;
             padding: 1rem 0;
@@ -71,6 +97,7 @@
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="booking.html">Book an Appointment</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -78,10 +105,14 @@
         <div class="content">
             <section>
                 <h2>Our Portfolio</h2>
-                <div class="gallery">
-                    <img src="images/project1.jpg" alt="Project 1">
-                    <img src="images/project2.jpg" alt="Project 2">
-                    <img src="images/project3.jpg" alt="Project 3">
+                <div class="carousel" id="carousel">
+                    <img src="images/painting1.jpg" alt="Project 1" class="active">
+                    <img src="images/painting2.jpg" alt="Project 2">
+                    <img src="images/painting3.jpg" alt="Project 3">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control" id="prev">&#10094;</button>
+                    <button class="carousel-control" id="next">&#10095;</button>
                 </div>
             </section>
         </div>
@@ -89,5 +120,31 @@
     <footer>
         <p>Phone: 470-532-4145 | Email: <a href="mailto:info.estimates@mexuslegacy.com" style="color: white;">info.estimates@mexuslegacy.com</a></p>
     </footer>
+    <script>
+        const carousel = document.getElementById('carousel');
+        const images = carousel.getElementsByTagName('img');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (index + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        function showNextImage() {
+            showImage(currentIndex + 1);
+        }
+
+        function showPrevImage() {
+            showImage(currentIndex - 1);
+        }
+
+        nextButton.addEventListener('click', showNextImage);
+        prevButton.addEventListener('click', showPrevImage);
+
+        setInterval(showNextImage, 5000); // Change image every 5 seconds
+    </script>
 </body>
 </html>
